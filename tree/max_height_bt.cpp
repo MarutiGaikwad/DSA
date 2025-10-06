@@ -30,11 +30,10 @@ Node* buildTree(Node* root) {
 
     return root;
 }
-int diameter(Node* root,int & dim){
+int maxheight(Node* root){
     if(root==nullptr) return 0;
-    int lh= diameter(root->left,dim);
-    int rh=diameter(root->right,dim);
-    dim=max(dim,(lh+rh+1));
+    int lh= maxheight(root->left);
+    int rh=maxheight(root->right);
     return 1+ max(lh,rh);
 
 
@@ -43,7 +42,6 @@ int main(){
     Node* root=nullptr;
     root=buildTree(root);
     
-    int dim=0;
-    diameter(root, dim);
-    cout<< "dimeter"<<dim<<endl;
+    int height=maxheight(root);
+    cout<< "Height"<<height<<endl;
 }

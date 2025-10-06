@@ -30,12 +30,12 @@ Node* buildTree(Node* root) {
 
     return root;
 }
-int diameter(Node* root,int & dim){
+int maxpath(Node* root,int & dim){
     if(root==nullptr) return 0;
-    int lh= diameter(root->left,dim);
-    int rh=diameter(root->right,dim);
-    dim=max(dim,(lh+rh+1));
-    return 1+ max(lh,rh);
+    int lh= maxpath(root->left,dim);
+    int rh=maxpath(root->right,dim);
+    dim=max(dim,(lh+rh+root->data));
+ return root->data + max(lh, rh);
 
 
 }
@@ -43,7 +43,7 @@ int main(){
     Node* root=nullptr;
     root=buildTree(root);
     
-    int dim=0;
-    diameter(root, dim);
-    cout<< "dimeter"<<dim<<endl;
+ int SUM = INT32_MIN; 
+    maxpath(root, SUM);
+    cout<< "PATH SUM"<<" "<<SUM<<endl;
 }

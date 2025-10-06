@@ -15,10 +15,10 @@ struct Node {
 void preorder(Node* root) {
     if (root == NULL) return;
       
-     
+     cout << root->data << " "; 
     preorder(root->left);
     preorder(root->right);
-     cout << root->data << " "; 
+      
 }
 
 Node* buildTree(Node* root) {
